@@ -17,7 +17,7 @@ export class NewsProvider {
   }
 
   getNews() {
-    return this.http.get(this.api_url);
+    return this.http.get(this.api_url,);
   }
 
 }
