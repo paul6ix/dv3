@@ -7,12 +7,22 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>account</ion-title>
+    <ion-title>Account</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="card-background-page" no-padding>
+
+
+  <ion-card>
+    <img item-start src="../../assets/imgs/card_back.png"/>
+    <div class="card-title">Paul Chidi</div>
+    <div class="card-subtitle">Administrator</div>
+  </ion-card>
+
+  <button ion-button block (click)="onLogout()">Logout</button>
+
 
 </ion-content>

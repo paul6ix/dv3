@@ -29,7 +29,9 @@ export class LoginPage {
     console.log(this.username, this.password.hash);
     this.authProvider.postLogin(this.username,this.password).subscribe(data =>{
       console.log(data);
-      localStorage.setItem('loginToken', JSON.stringify(data))
+      localStorage.setItem('loginToken', JSON.stringify(data));
+      
+      this.navCtrl.setRoot(TabsPage);
     });
 
   }
