@@ -8,7 +8,7 @@
   <ion-list text-wrap>
     <ion-item *ngFor="let article of news">
       <h2>{{article.title}}</h2>
-      <button ion-button clear item-end><a href="{{article.url}}"></a>View</button>
+      <a ion-button clear item-end href="{{article.url}}">View</a>
     </ion-item>
   </ion-list>
 
