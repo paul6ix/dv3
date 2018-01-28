@@ -15,8 +15,16 @@ import {LoginPage} from "../login/login";
   templateUrl: 'account.html',
 })
 export class AccountPage {
+  name;
+  email;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    let localname = JSON.parse(localStorage.getItem('loginToken')).user_nicename;
+    let localemail = JSON.parse(localStorage.getItem('loginToken')).user_email;
+    this.name = localname.toUpperCase();
+    this.email = localemail;
+
   }
 
   ionViewDidLoad() {

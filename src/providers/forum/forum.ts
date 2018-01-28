@@ -21,10 +21,11 @@ export class ForumProvider {
   }
 
   postForum(title, content) {
+    let localname = JSON.parse(localStorage.getItem('loginToken')).user_nicename;
     let data = {
       title: title,
       content: content,
-      creator: 'donbayTips',
+      creator: localname,
       status: 'publish'
     };
     let token = JSON.parse(localStorage.getItem('loginToken')).token;
