@@ -7,12 +7,30 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>forum</ion-title>
+    <ion-title>Forum</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onCreateForum()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let forum of forums" (click)="onshowforum(forum)">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>
+            {{forum.title.rendered}}
+
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+    </ion-item>
+  </ion-list>
 
 </ion-content>

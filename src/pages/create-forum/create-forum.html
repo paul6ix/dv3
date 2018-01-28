@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create Forum</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-input type="text" placeholder="Title" [(ngModel)]="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Content" [(ngModel)]="content"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button block (click)="onPublishForum()">Publish</button>
+
+</ion-content>

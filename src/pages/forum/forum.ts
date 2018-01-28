@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, NavParams} from 'ionic-angular';
+import {ForumProvider} from "../../providers/forum/forum";
+import {ForumDetailPage} from "../forum-detail/forum-detail";
+import {CreateForumPage} from "../create-forum/create-forum";
 
 /**
  * Generated class for the ForumPage page.
@@ -8,18 +11,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-forum',
   templateUrl: 'forum.html',
 })
 export class ForumPage {
+  forums;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private forumProvider: ForumProvider) {
+    this.forumProvider.getForum().subscribe(data => {
+      console.log(data);
+      this.forums = data;
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ForumPage');
+  }
+
+  onshowforum(forum) {
+    this.navCtrl.push('ForumDetailPage', {forum});
+  }
+
+  onCreateForum() {
+    this.navCtrl.push('CreateForumPage')
   }
 
 }
