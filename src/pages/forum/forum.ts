@@ -1,8 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {ForumProvider} from "../../providers/forum/forum";
-import {ForumDetailPage} from "../forum-detail/forum-detail";
-import {CreateForumPage} from "../create-forum/create-forum";
+
 
 /**
  * Generated class for the ForumPage page.

@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {PostProvider} from "../../providers/post/post";
-import {TipsDetailPage} from "../tips-detail/tips-detail";
 
 
 @Component({

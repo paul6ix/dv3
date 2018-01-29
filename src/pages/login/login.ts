@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {LoadingController, NavController, NavParams} from 'ionic-angular';
 import {AuthProvider} from "../../providers/auth/auth";
 import {TabsPage} from "../tabs/tabs";
 
@@ -20,19 +20,30 @@ export class LoginPage {
   username;
   password;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private authProvider : AuthProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authProvider: AuthProvider, public loadCrtl: LoadingController) {
     if (localStorage.getItem('loginToken')){
       this.navCtrl.setRoot(TabsPage);
     }
   }
   onLogin(){
+    this.loader();
     console.log(this.username, this.password.hash);
     this.authProvider.postLogin(this.username,this.password).subscribe(data =>{
       console.log(data);
       localStorage.setItem('loginToken', JSON.stringify(data));
-      
       this.navCtrl.setRoot(TabsPage);
+
     });
+
+  }
+
+  loader() {
+    let loading = this.loadCrtl.create({
+      content: 'Logging in',
+      duration: 5000,
+      dismissOnPageChange: true
+    });
+    loading.present();
 
   }
 

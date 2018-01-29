@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {ForumProvider} from "../../providers/forum/forum";
-import {TabsPage} from "../tabs/tabs";
 
 /**
  * Generated class for the CreateForumPage page.
@@ -19,7 +18,7 @@ export class CreateForumPage {
   title;
   content;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private forumProvider: ForumProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private forumProvider: ForumProvider, public alertCrtl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -30,8 +29,17 @@ export class CreateForumPage {
     this.forumProvider.postForum(this.title, this.content).subscribe(data => {
       console.log(data);
     });
-    this.navCtrl.push(TabsPage);
-
+    this.showAlert();
   }
+
+  showAlert() {
+    let alert = this.alertCrtl.create({
+      title: 'New Forum!',
+      subTitle: 'Forum Created successfully!',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
 
 }
