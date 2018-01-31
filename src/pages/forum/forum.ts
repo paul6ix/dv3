@@ -37,4 +37,19 @@ export class ForumPage {
     this.navCtrl.push('CreateForumPage')
   }
 
+  onRefresh(refresher) {
+    this.forumProvider.getForum().subscribe(data => {
+      console.log(data, refresher);
+      this.forums = data;
+
+    });
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
+
+
 }

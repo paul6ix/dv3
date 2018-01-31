@@ -30,6 +30,7 @@ export class CreateForumPage {
       console.log(data);
     });
     this.showAlert();
+    this.navCtrl.popTo('ForumPage');
 
   }
 

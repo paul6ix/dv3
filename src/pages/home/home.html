@@ -7,9 +7,12 @@
 <ion-content class="background" padding>
   <ion-list text-wrap>
     <ion-item *ngFor="let article of news">
+
       <h2>{{article.title}}</h2>
       <a ion-button clear item-end href="{{article.url}}">View</a>
     </ion-item>
   </ion-list>
-
+  <ion-refresher (ionRefresh)="onRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 </ion-content>

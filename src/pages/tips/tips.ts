@@ -20,4 +20,17 @@ export class TipsPage {
     this.navCtrl.push('TipsDetailPage', {post: post});
   }
 
+  onRefresh(refresher) {
+    this.postProvider.getPosts().subscribe(data => {
+      console.log(data);
+      this.posts = data;
+    });
+
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
 }

@@ -16,6 +16,7 @@ export class HomePage {
   constructor(public navCtrl: NavController, private newsProvider: NewsProvider) {
     this.newsProvider.getNews().subscribe(data => {
 
+
       localStorage.setItem('newsfeed', JSON.stringify(data));
       let localnews = JSON.parse(localStorage.getItem('newsfeed')).articles;
       this.news = localnews;
@@ -25,11 +26,25 @@ export class HomePage {
     })
 
 
+  }
+
+  onRefresh(refresher) {
+
+    this.newsProvider.getNews().subscribe(data => {
 
 
+      localStorage.setItem('newsfeed', JSON.stringify(data));
+      let localnews = JSON.parse(localStorage.getItem('newsfeed')).articles;
+      this.news = localnews;
+      console.log(this.news, refresher);
 
 
+    });
 
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
   }
 
 }
