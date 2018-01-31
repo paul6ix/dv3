@@ -1,10 +1,10 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>News Feed</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="background" padding>
   <ion-list text-wrap>
     <ion-item *ngFor="let article of news">
       <h2>{{article.title}}</h2>

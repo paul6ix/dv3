@@ -6,21 +6,22 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Tips</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="background" padding>
   <ion-list>
     <ion-card *ngFor="let post of posts" (click)="onShowPost(post)">
       <ion-card-header>
-        <ion-card-title text-wrap [innerHTML]=" post.title.rendered">
+        <ion-card-title color="light" text-wrap [innerHTML]="post.title.rendered">
 
         </ion-card-title>
       </ion-card-header>
+      <ion-card-content [innerHTML]="post.excerpt.rendered"></ion-card-content>
 
     </ion-card>
   </ion-list>

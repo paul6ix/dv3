@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {LoadingController, NavController, NavParams} from 'ionic-angular';
+import {AlertController, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {AuthProvider} from "../../providers/auth/auth";
 import {TabsPage} from "../tabs/tabs";
 
@@ -20,7 +20,7 @@ export class LoginPage {
   username;
   password;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private authProvider: AuthProvider, public loadCrtl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authProvider: AuthProvider, public loadCrtl: LoadingController, public alertCrtl: AlertController) {
     if (localStorage.getItem('loginToken')){
       this.navCtrl.setRoot(TabsPage);
     }
@@ -32,6 +32,16 @@ export class LoginPage {
       console.log(data);
       localStorage.setItem('loginToken', JSON.stringify(data));
       this.navCtrl.setRoot(TabsPage);
+
+    }, err => {
+      let dataerr = err.error.message;
+      let alert = this.alertCrtl.create({
+        title: 'ERROR!',
+        subTitle: dataerr,
+        buttons: ['OK']
+      });
+      alert.present();
+
 
     });
 
