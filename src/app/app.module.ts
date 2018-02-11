@@ -17,7 +17,10 @@ import {ForumPage} from "../pages/forum/forum";
 import {AccountPage} from "../pages/account/account";
 import {NewsProvider} from '../providers/news/news';
 import {ForumProvider} from '../providers/forum/forum';
+import {ChatRoomPage} from "../pages/chat-room/chat-room";
+import {SocketIoConfig, SocketIoModule} from "ng-socket-io";
 
+const config: SocketIoConfig = {url: 'http://localhost:3000', options: {}};
 @NgModule({
   declarations: [
     MyApp,
@@ -26,10 +29,12 @@ import {ForumProvider} from '../providers/forum/forum';
     TipsPage,
     LoginPage,
     ForumPage,
-    AccountPage
+    AccountPage,
+    ChatRoomPage
   ],
   imports: [
     BrowserModule,
+    SocketIoModule.forRoot(config),
     IonicModule.forRoot(MyApp),
     HttpClientModule
   ],
@@ -41,7 +46,8 @@ import {ForumProvider} from '../providers/forum/forum';
     TipsPage,
     LoginPage,
     ForumPage,
-    AccountPage
+    AccountPage,
+    ChatRoomPage
   ],
   providers: [
     StatusBar,

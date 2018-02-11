@@ -1,6 +1,6 @@
 {
   "name": "dv3",
-  "app_id": "",
+  "app_id": "ed255e7c",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
