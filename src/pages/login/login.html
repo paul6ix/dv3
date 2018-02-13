@@ -22,10 +22,10 @@
     </ion-item>
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="password" [disabled]="username=== ''"></ion-input>
     </ion-item>
 
   </ion-list>
-  <button ion-button block (click)="onLogin()">Login</button>
+  <button ion-button block (click)="onLogin()" [disabled]=" password === ''">Login</button>
 
 </ion-content>

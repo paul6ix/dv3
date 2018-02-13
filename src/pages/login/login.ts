@@ -17,8 +17,8 @@ import {TabsPage} from "../tabs/tabs";
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  username;
-  password;
+  username = '';
+  password = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private authProvider: AuthProvider, public loadCrtl: LoadingController, public alertCrtl: AlertController) {
     if (localStorage.getItem('loginToken')){
@@ -27,7 +27,7 @@ export class LoginPage {
   }
   onLogin(){
     this.loader();
-    console.log(this.username, this.password.hash);
+    // console.log(this.username, this.password);
     this.authProvider.postLogin(this.username,this.password).subscribe(data =>{
       console.log(data);
       localStorage.setItem('loginToken', JSON.stringify(data));
