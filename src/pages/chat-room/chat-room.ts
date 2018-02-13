@@ -3,13 +3,6 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 import {Socket} from 'ng-socket-io';
 import {Observable} from "rxjs/Observable";
 
-/**
- * Generated class for the ChatRoomPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-chat-room',
