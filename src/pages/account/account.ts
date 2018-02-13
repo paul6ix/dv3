@@ -17,6 +17,7 @@ import {LoginPage} from "../login/login";
 export class AccountPage {
   name;
   email;
+  type;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -24,6 +25,12 @@ export class AccountPage {
     let localemail = JSON.parse(localStorage.getItem('loginToken')).user_email;
     this.name = localname.toUpperCase();
     this.email = localemail;
+    if (this.name === "PAUL6IX") {
+      this.type = "Administrator";
+    }
+    else {
+      this.type = "Member";
+    }
 
   }
 

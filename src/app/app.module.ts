@@ -13,7 +13,6 @@ import {AuthProvider} from '../providers/auth/auth';
 import {PostProvider} from '../providers/post/post';
 import {HttpClientModule} from "@angular/common/http";
 import {LoginPage} from "../pages/login/login";
-import {ForumPage} from "../pages/forum/forum";
 import {AccountPage} from "../pages/account/account";
 import {NewsProvider} from '../providers/news/news';
 import {ForumProvider} from '../providers/forum/forum';
@@ -28,7 +27,6 @@ const config: SocketIoConfig = {url: 'http://localhost:3000', options: {}};
     TabsPage,
     TipsPage,
     LoginPage,
-    ForumPage,
     AccountPage,
     ChatRoomPage
   ],
@@ -45,7 +43,6 @@ const config: SocketIoConfig = {url: 'http://localhost:3000', options: {}};
     TabsPage,
     TipsPage,
     LoginPage,
-    ForumPage,
     AccountPage,
     ChatRoomPage
   ],
