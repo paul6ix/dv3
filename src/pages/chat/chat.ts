@@ -18,7 +18,6 @@ import {Observable} from 'rxjs/Observable';
 export class ChatPage {
   username: string = '';
   message: string = '';
-  _chatSubscription;
   messages: Observable<any[]>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase) {
@@ -46,7 +45,6 @@ export class ChatPage {
 
   ionViewWillLeave() {
     console.log('ionViewWillLeave ChatRoomPage');
-    this._chatSubscription.unsubscribe();
     this.db.list('/chat').push({
       specialMessage: true,
       message: `${this.username} has left the room`
