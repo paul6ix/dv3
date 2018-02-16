@@ -43,6 +43,7 @@ export class LoginPage {
       alert.present();
 
 
+
     });
 
   }
@@ -50,7 +51,7 @@ export class LoginPage {
   loader() {
     let loading = this.loadCrtl.create({
       content: 'Logging in',
-      duration: 5000,
+      duration: 8000,
       dismissOnPageChange: true
     });
     loading.present();

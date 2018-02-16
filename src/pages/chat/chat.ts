@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {Content, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {AngularFireDatabase} from 'angularfire2/database'
 import {Observable} from 'rxjs/Observable';
+
 
 /**
  * Generated class for the ChatPage page.
@@ -14,8 +15,11 @@ import {Observable} from 'rxjs/Observable';
 @Component({
   selector: 'page-chat',
   templateUrl: 'chat.html',
+
 })
 export class ChatPage {
+  @ViewChild(Content) content: Content;
+
   username: string = '';
   message: string = '';
   messages: Observable<any[]>;
@@ -41,6 +45,7 @@ export class ChatPage {
       message: `${this.username} has joined the room`
     });
     console.log('ionViewDidLoad ChatPage');
+
   }
 
   ionViewWillLeave() {
@@ -50,6 +55,17 @@ export class ChatPage {
       message: `${this.username} has left the room`
     });
   }
+
+  ionViewDidEnter() {
+    setTimeout(time => {
+      this.content.scrollToBottom();
+
+    });
+
+
+  }
+
+
 }
 
 
