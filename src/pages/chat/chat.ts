@@ -27,7 +27,7 @@ export class ChatPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase) {
     let localname = JSON.parse(localStorage.getItem('loginToken')).user_nicename;
     this.username = localname.toUpperCase();
-    this.messages = db.list('/chat').valueChanges();
+    this.messages = db.list('/chat');
 
   }
 
