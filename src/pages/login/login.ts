@@ -4,14 +4,6 @@ import {AuthProvider} from "../../providers/auth/auth";
 import {TabsPage} from "../tabs/tabs";
 
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -43,7 +35,6 @@ export class LoginPage {
       alert.present();
 
 
-
     });
 
   }
@@ -52,7 +43,8 @@ export class LoginPage {
     let loading = this.loadCrtl.create({
       content: 'Logging in',
       duration: 8000,
-      dismissOnPageChange: true
+      dismissOnPageChange: true,
+
     });
     loading.present();
 

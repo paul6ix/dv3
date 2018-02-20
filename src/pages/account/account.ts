@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {App, NavController, NavParams} from 'ionic-angular';
 import {LoginPage} from "../login/login";
+
 
 /**
  * Generated class for the AccountPage page.
@@ -20,7 +21,7 @@ export class AccountPage {
   type;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App) {
     let localname = JSON.parse(localStorage.getItem('loginToken')).user_nicename;
     let localemail = JSON.parse(localStorage.getItem('loginToken')).user_email;
     this.name = localname.toUpperCase();
@@ -39,7 +40,11 @@ export class AccountPage {
   }
 
   onLogout() {
-    this.navCtrl.setRoot(LoginPage);
+    // this.navCtrl.setRoot(LoginPage);
+    let nav = this.app.getRootNav();
+    nav.setRoot(LoginPage);
+
+
     localStorage.clear();
   }
 
