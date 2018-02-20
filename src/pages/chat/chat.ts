@@ -1,10 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
-import {Content, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Content, NavController, NavParams} from 'ionic-angular';
 import {AngularFireDatabase} from 'angularfire2/database'
 import {Observable} from 'rxjs/Observable';
 
 
-@IonicPage()
 @Component({
   selector: 'page-chat',
   templateUrl: 'chat.html',
